@@ -1,4 +1,7 @@
 package view;
+/*
+游戏主窗体。
+ */
 
 import javax.swing.*;
 import java.awt.*;
