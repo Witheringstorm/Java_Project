@@ -12,10 +12,17 @@ public class ChessGameFrame extends JFrame{
     private int GameFrameHeight = 720;
 
     public ChessGameFrame(){
+
         setTitle("Dark Chess");
         setSize(GameFrameWidth,GameFrameHeight);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(new Chessboard());
+        JButton start = new JButton("");
+        start.setLocation(100,100);
+        start.setSize(1,100);
+        add(start);
+
+
     }
 
 }
