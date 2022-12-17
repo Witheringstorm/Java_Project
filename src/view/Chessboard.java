@@ -1,5 +1,6 @@
 package view;
 
+import Calculate.Coordinate;
 import Pieces.*;
 
 import javax.imageio.ImageIO;
@@ -18,11 +19,13 @@ public class Chessboard extends JPanel {
 
     BufferedImage Wooden_Chessboard;
     BufferedImage test;
+    BufferedImage advisor;
 
     public Chessboard() {
         try {
             Wooden_Chessboard = ImageIO.read(new File("image/WoodenChessboard.jpg"));
             test = ImageIO.read(new File("image/test.jpg"));
+            advisor = ImageIO.read(new File("image/advisor.png"));
         } catch (IOException e) {
             e.printStackTrace();
 
@@ -45,17 +48,6 @@ public class Chessboard extends JPanel {
         for (int j = 1; j < 8; j++) {
             g2.drawLine(100, 50 + 75 * j, 400, 50 + 75 * j);
         }
-
-
-        //绘制棋子图片
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (Information_of_Location.chessboard[i][j].type == 6) {
-                    g.drawImage(test, i, j, this);
-                } ;
-            }
-        }
-
 
     }
 }
