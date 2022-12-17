@@ -1,7 +1,5 @@
 package view;
 
-import Calculate.Coordinate;
-import Pieces.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

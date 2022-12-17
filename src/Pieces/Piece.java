@@ -2,7 +2,7 @@ package Pieces;
 
 import javax.swing.*;
 
- public abstract class Piece extends JComponent {
+public abstract class Piece extends JComponent {
     //所有棋子和空棋子的父类
     public boolean exist = true;
     public boolean IsReversal = false;
@@ -10,9 +10,11 @@ import javax.swing.*;
     public int type;
     public char side;
     public int points;
-    public ImageIcon unreversed = new ImageIcon("image/unreversed.png");
+    ImageIcon unreversed = new ImageIcon("image/unreversed.png");
+    ImageIcon red_advisor = new ImageIcon("image/red_advisor.png");
+    ImageIcon red_advisor_select = new ImageIcon("image/red_advisor_select.png");
 
-     JLabel PieceLabel = new JLabel();
+    JLabel PieceLabel = new JLabel();
 
     public void reverse() {
         IsReversal = true;
@@ -26,7 +28,8 @@ import javax.swing.*;
             IsSelected = false;
         }
     }
-     public abstract JLabel visible(int i,int j);
+
+    public abstract JLabel visible(int i, int j);
 
 
 }

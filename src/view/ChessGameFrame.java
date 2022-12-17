@@ -8,6 +8,7 @@ import EventDealer.ClickPieces;
 import Pieces.*;
 
 import javax.swing.*;
+import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -38,7 +39,7 @@ public class ChessGameFrame extends JFrame {
 
 
     //获取鼠标点击坐标
-    public void addMouseListener() {
+   /*public void addMouseListener() {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -49,7 +50,7 @@ public class ChessGameFrame extends JFrame {
                 }
             }
         });
-    }
+    }*/
 
     //重新开始按钮
     public void addRestartButton() {
@@ -66,17 +67,18 @@ public class ChessGameFrame extends JFrame {
         add(restart);
     }
 
-    public void DrawPieces(){
+    public void DrawPieces() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 4; j++) {
-                JLabel label= chessboard[i][j].visible(i,j);
+                JLabel label = chessboard[i][j].visible(i, j);
                 int finalI = i;
                 int finalJ = j;
                 label.addMouseListener(new MouseAdapter() {
-                    public void mouseClicked(MouseEvent e) {
+                    public void mousePressed(MouseEvent e) {
                         // 这里是点击 JLabel 后要执行的代码
                         System.out.println("Click!" + (finalI + 1) + "," + (finalJ + 1));
-                        ClickPieces.click(chessboard[finalI][finalJ],finalI,finalJ);
+                        ClickPieces.click(chessboard[finalI][finalJ], finalI, finalJ);
+
                     }
                 });
                 add(label);
