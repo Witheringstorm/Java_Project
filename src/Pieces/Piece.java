@@ -10,6 +10,9 @@ import javax.swing.*;
     public int type;
     public char side;
     public int points;
+    public ImageIcon unreversed = new ImageIcon("image/unreversed.png");
+
+     JLabel PieceLabel = new JLabel();
 
     public void reverse() {
         IsReversal = true;

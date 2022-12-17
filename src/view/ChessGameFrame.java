@@ -4,17 +4,14 @@ package view;
  */
 
 import Calculate.*;
+import EventDealer.ClickPieces;
 import Pieces.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+
+import static Pieces.Information_of_Location.chessboard;
 
 public class ChessGameFrame extends JFrame {
     private int GameFrameWidth = 720;
@@ -36,7 +33,6 @@ public class ChessGameFrame extends JFrame {
 
         addRestartButton();
         DrawPieces();
-
 
     }
 
@@ -73,7 +69,17 @@ public class ChessGameFrame extends JFrame {
     public void DrawPieces(){
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 4; j++) {
-                add(Information_of_Location.chessboard[i][j].visible(i,j));
+                JLabel label= chessboard[i][j].visible(i,j);
+                int finalI = i;
+                int finalJ = j;
+                label.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        // 这里是点击 JLabel 后要执行的代码
+                        System.out.println("Click!" + (finalI + 1) + "," + (finalJ + 1));
+                        ClickPieces.click(chessboard[finalI][finalJ],finalI,finalJ);
+                    }
+                });
+                add(label);
             }
         }
     }
